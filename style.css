@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light-purple: hsl(260, 100%, 95%);
+    --purple: hsl(264, 82%, 80%);
+    --dark-purple: hsl(263, 55%, 52%);
+
+    --white: hsl(0, 0%, 100%);
+    --darker-white: hsl(214, 17%, 92%);
+    --light-grey: hsl(0, 0%, 81%);
+    --grey: hsl(224, 10%, 45%);
+    --dark-grey: hsl(217, 19%, 35%);
+    --dark-blue: hsl(219, 29%, 14%);
+    --black: hsl(0, 0%, 7%);
+}
+
+body {
+    min-height: 100vh;
+    background-color: white;
+    font-family: 'Barlow Semi Condensed';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.card {
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0.1em 0.1rem 1rem var(--dark-blue);
+    padding: 2rem;
+}
+
+.purple-card {
+    background-color: var(--dark-purple);
+}
+
+.grey-card {
+    background: linear-gradient(var(--grey), var(--dark-grey));
+}
+
+.white-card {
+    color: black;
+    background: linear-gradient(var(--white), var(--darker-white));
+}
+
+.black-card {
+    background: linear-gradient(var(--dark-blue), var(--black));
+}
+
+.profile {
+    display: flex;
+    margin: 1rem;
+}
+
+.profile img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.purple-card img, .black-card img {
+    border: 2px solid var(--dark-purple);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.card-description {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 1rem;
+}
+
+.cards-container .card:nth-child(1) {
+    grid-area: card1;
+}
+
+.cards-container .card:nth-child(2) {
+    grid-area: card2;
+}
+
+.cards-container .card:nth-child(3) {
+    grid-area: card3;
+}
+
+.cards-container .card:nth-child(4) {
+    grid-area: card4;
+}
+
+.cards-container .card:nth-child(5) {
+    grid-area: card5;
+}
+
+@media screen and (min-width: 45rem) {
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        "card1 card1"
+        "card2 card3"
+        "card4 card4"
+        "card5 card5";
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    body {
+        padding: 0 15rem;
+    }
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+        "card1 card1 card2 card5"
+        "card3 card4 card4 card5";
+        gap: 2rem;
+    }
+}
